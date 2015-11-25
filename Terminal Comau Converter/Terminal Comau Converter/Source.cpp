@@ -1,6 +1,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <stdlib.h>
 
 // Unused Code. I'll keep it here just in case.
 /*char numeri;
@@ -18,55 +19,98 @@ using namespace std;
 int main()
 {
 	ifstream infile("C:/Temp/input.stp");
-	ofstream outfile("C:/Temp/output.scl");
-	string inln = "0";
-	string outln = "0";
+	ofstream outfile("C:/Temp/sculpture.scl");
+	string inln = "";
+	string outln = "";
 	string end = "ENDSEC";
 	char delim = ';';
 	char iscart = 'S';
 	bool stop = 1;
-	int lx = 0;
-	int ly = 0;
-	int lz = 0;
-	int l = -2;
+	bool threesteps = 1;
+	bool headerend = 1;
 	int n = 0;
+	int l = -2;
+	int c = 0;
+	string bnum = "";
+	string x = "";
+	string y = "";
+	string z = "";
 
-	cout << "Starting translation...\n";
+	cout << "|| Starting translation...\n";
 	outfile << "//This is the file intestation. You can freely edit it. Consider describing the shape the file contains.\n";
 
 	while (stop)
 	{
 		getline(infile, inln, delim);
+		if (headerend)
+		{
+			while (inln[1] != '#')
+			{
+				getline(infile, inln, delim);
+			}
+			headerend = 0;
+		}
 		if (inln == end)
 		{
-			cout << "\nFinished Translation. ";
+			cout << "\n|| Finished Translation. ";
 			stop = 0;
 		}
 		else
 		{
-			while (inln[n] != '=')
+			while (inln[c] != '=')
 			{
-				n = n + 1;
-				l = l + 1;
+				c++;
+				l++;
 			}
-			if ((inln[3 + l] == 'C')&&(inln[6 + l] == 'T'))
+			if ((inln[3 + l] == 'C') && (inln[5 + l] == 'R') &&(inln[6 + l] == 'T'))
 			{
-				cout << "||   " << inln << ";\n|| Translating to ||\n";
+				while (inln[c] != ',')
+				{
+					c++;
+				}
+				c++;
+				c++;
+				while (inln[c] != ',')
+				{
+					bnum = bnum + inln[c];
+					c++;
+				}
+				c++;
+				x = bnum;
+				bnum = "";
+				while (inln[c] != ',')
+				{
+					bnum = bnum + inln[c];
+					c++;
+				}
+				c++;
+				y = bnum;
+				bnum = "";
+				while (inln[c] != ')')
+				{
+					bnum = bnum + inln[c];
+					c++;
+				}
+				c++;
+				z = bnum;
+				bnum = "";
 
-				//Here has to be placed the part that actually transfers the coordinates from the .stp format to the .scl format.
-
-				outln = inln + ";";
+				outln = "<" + x + "," + y + "," + z + ",0,0,0,>TRUE";
 				outfile << outln << endl;
+
+				cout << "||" << inln << ";\n||-----| Translating to |-----||\n||" << outln << "\n||                            ||\n";
 
 			}
 			else
 			{
-				cout << "\n|| Line Ignored   ||\n";
+				cout << "||-----| Line Ignored   |-----||\n||                            ||\n";
 			}
 		}
 		getline(infile, inln);
 		inln = "";
 		l = -2;
-		n = 0;
+		c = 0;
 	}
+	outln = "<0,0,0,0,0,0,>FALSE";
+	outfile << outln;
 }
