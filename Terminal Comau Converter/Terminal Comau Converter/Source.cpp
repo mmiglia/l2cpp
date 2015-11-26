@@ -110,12 +110,16 @@ int main()
 				outln = "<" + x + "," + y + "," + z + ",0,0,0,>TRUE";
 				outfile << outln << endl;
 
-				cout << "|| " << inln << ";\n||-----| Translating to |-----||\n|| " << outln << "\n||                            ||\n";
+				cout << "|| " << inln << ";\n";
+				cout << "||===========================|  Translating to  |============================||\n";
+				cout << "|| " << outln << "\n";
+				cout << "||                                                                           ||\n";
 
 			}
 			else
 			{
-				cout << "||-----| Line Ignored   |-----||\n||                            ||\n";
+				cout << "||===========================|   Line Ignored   |============================||\n";
+				cout << "||                                                                           ||\n";
 			}
 		}
 		getline(infile, inln);
