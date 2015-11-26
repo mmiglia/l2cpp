@@ -3,17 +3,6 @@
 #include <string>
 #include <stdlib.h>
 
-// Unused Code. I'll keep it here just in case.
-/*char numeri;
-int fine;
-char *dnumeri = &numeri;*/
-/*leggofile.read(dnumeri, 1);
-cout << numeri << "\n";
-leggofile.read(dnumeri, 1);
-cout << numeri << "\n";
-leggofile.read(dnumeri, 1);
-cout << numeri << "\n";*/
-
 using namespace std;
 
 int main()
