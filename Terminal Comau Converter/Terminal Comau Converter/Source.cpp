@@ -36,8 +36,17 @@ int main()
 	string y = "";
 	string z = "";
 
-
-	cout << "|| This Translator will work on a file named \"input.stp\" placed in this folder.\n|| The output will be \"sculpture.scl\". Please move your file here.\n|| If no file is available, translation won't start and thus won't end.\n";
+	cout << "||===========================================================================||\n";
+	cout << "||======|| Alessandro's .stp to .scl translator for COMAU C4G Robots ||======||\n";
+	cout << "||                                                                           ||\n";
+	cout << "||   This Translator will work from files named \"input.stp\" in this folder.  ||\n";
+	cout << "||      The output will be \"sculpture.scl\". Please move your file here.      ||\n";
+	cout << "||    If no file is available, translation won't start and thus won't end.   ||\n";
+	cout << "||                                                                           ||\n";
+	cout << "||======||   Compiled the 26th of November in 2015 at DIMEC, Genua   ||======||\n";
+	cout << "||===========================================================================||\n";
+	cout << "||                                                                           ||\n";
+	cout << "|| ";
 	system("pause");
 	cout << "|| Starting translation...\n";
 	outfile << "//This is the file intestation. You can freely edit it. Consider describing the shape the file contains.\n";
@@ -55,7 +64,7 @@ int main()
 		}
 		if (inln == end)
 		{
-			cout << "\n|| Finished Translation. ";
+			cout << "|| Finished Translation. ";
 			stop = 0;
 		}
 		else
@@ -101,7 +110,7 @@ int main()
 				outln = "<" + x + "," + y + "," + z + ",0,0,0,>TRUE";
 				outfile << outln << endl;
 
-				cout << "||" << inln << ";\n||-----| Translating to |-----||\n||" << outln << "\n||                            ||\n";
+				cout << "|| " << inln << ";\n||-----| Translating to |-----||\n|| " << outln << "\n||                            ||\n";
 
 			}
 			else
