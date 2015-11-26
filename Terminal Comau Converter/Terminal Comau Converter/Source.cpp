@@ -18,8 +18,8 @@ using namespace std;
 
 int main()
 {
-	ifstream infile("C:/Temp/input.stp");
-	ofstream outfile("C:/Temp/sculpture.scl");
+	ifstream infile("./input.stp");
+	ofstream outfile("./sculpture.scl");
 	string inln = "";
 	string outln = "";
 	string end = "ENDSEC";
@@ -36,6 +36,9 @@ int main()
 	string y = "";
 	string z = "";
 
+
+	cout << "|| This Translator will work on a file named \"input.stp\" placed in this folder.\n|| The output will be \"sculpture.scl\". Please move your file here.\n|| If no file is available, translation won't start and thus won't end.\n";
+	system("pause");
 	cout << "|| Starting translation...\n";
 	outfile << "//This is the file intestation. You can freely edit it. Consider describing the shape the file contains.\n";
 
@@ -113,4 +116,6 @@ int main()
 	}
 	outln = "<0,0,0,0,0,0,>FALSE";
 	outfile << outln;
+	system("pause");
+	return 0;
 }
