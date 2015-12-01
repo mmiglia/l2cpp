@@ -31,6 +31,7 @@ int main()
 	cout << "||   This Translator will work from files named \"input.stp\" in this folder.  ||\n";
 	cout << "||      The output will be \"sculpture.scl\". Please move your file here.      ||\n";
 	cout << "||    If no file is available, translation won't start and thus won't end.   ||\n";
+	cout << "||             Note also that this is the experimental version.              ||\n";
 	cout << "||                                                                           ||\n";
 	cout << "||======||   Compiled the 26th of November in 2015 at DIMEC, Genua   ||======||\n";
 	cout << "||===========================================================================||\n";
