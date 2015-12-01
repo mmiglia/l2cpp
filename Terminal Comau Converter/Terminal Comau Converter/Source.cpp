@@ -7,8 +7,8 @@ using namespace std;
 
 int main()
 {
-	ifstream infile("./input.stp");
-	ofstream outfile("./sculpture.scl");
+	ifstream infile("C:/Temp/input.stp");
+	ofstream outfile("C:/Temp/sculpture.scl");
 	string inln = "";
 	string outln = "";
 	string end = "ENDSEC";
