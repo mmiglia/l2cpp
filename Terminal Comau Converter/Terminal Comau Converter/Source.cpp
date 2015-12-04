@@ -5,10 +5,29 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char** argv)
 {
-	ifstream infile("C:/Temp/input.stp");
-	ofstream outfile("C:/Temp/sculpture.scl");
+	char *s1, *s2;
+	if(argc > 1)
+	{
+		s1 = argv[1];
+	}
+	else
+	{
+		s1 = "C:/Temp/input.stp";
+	}
+	
+	//lo so anche io che se sei passato per il ramo else del primo if questo sara' sempre false, ma se li annido si legge male
+	if(argc > 2)
+	{
+		s2 = argv[2];
+	}
+	else
+	{
+		s2 = "C:/Temp/sculpture.scl";
+	}
+	ifstream infile(s1);
+	ofstream outfile(s2);
 	string inln = "";
 	string outln = "";
 	string end = "ENDSEC";
